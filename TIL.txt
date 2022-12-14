@@ -1,0 +1,71 @@
+2022-12-13
+
+    req 객체
+        req.app: req 객체를 통해 app 객체에 접근할 수 있습니다.
+        req.ip: 요청한 Client의 ip 주소가 담겨 있습니다.
+        req.body: Request를 호출할 때 body로 전달된 정보가 담긴 객체입니다.
+            body-parser Middleware를 이용하여야 해당 객체를 사용할 수 있습니다.
+        req.params: 라우터 매개 변수에 대한 정보가 담긴 객체입니다.
+        req.query: Request를 호출할 때 쿼리 스트링으로 전달된 정보가 담긴 객체입니다.
+        req.cookies: Request를 호출할 때 Cookie 정보가 담긴 객체입니다.
+            cooke-parset Middleware를 이용하여야 해당 객체를 사용할 수 있습니다.
+        req.get(Header): 헤더에 저장된 값을 가져오고 싶을 때 사용합니다.
+
+    res 객체
+        res.app: res 객체를 통해 app 객체에 접근할 수 있습니다.
+        res.status(코드): Response에 HTTP 상태 코드를 지정합니다.
+        res.send(데이터): 데이터를 포함하여 Response를 전달합니다.
+        res.json(json): JSON 형식으로 Response를 전달합니다.
+        res.end(): 데이터 없이 Response를 전달합니다.
+        res.direct(주소): 리다이렉트할 주소와 함께 Response를 전달합니다.
+        res.cookie(Key, Value, Option): 쿠키를 설정할 때 사용합니다.
+        res.clearCookie(Key, Value, Option): 쿠키를 제거할 때 사용합니다.
+
+    MongoDB
+        Document
+            데이터 하나의 단위이다.
+            한개 이상의 (Key:Value)로 이루어져 있다.
+        Collection
+            JSON형식의 여러가지 Document를 보유할 수 있다.
+            RDB의 Table과 동일한 역할이다.
+        Schema
+            Document에 어떤 종류의 값이 들어가는지 정의.
+        Model
+            데이터베이스에 데이터를 저장해줄때 데이터의 구조를 담당한다.
+            스키마를 사용하여 만들고, 작업 처리 함수들을 가지고 있다.
+            Document를 생성할 때 사용한다.
+
+2022-12-12
+
+    Promise(resolve, rejent)
+        resolve(): 메소드 Promise.then 호출
+        rejent(): 메소드 Promise.catch 호출
+
+    Promise의 상태
+        대기(Pending): 이행하거나 거부되지 않은 초기 상태.
+        이행(Fulfilled): 연산이 성공적으로 완료됨.
+        거부(Rejected): 연산이 실패함.
+
+    비동기 함수(Async Function)
+        결과 값은 항상 Promise 객체로 resolve 된다.
+            함수가 실행되기 전까지 Promise를 생성하지 않는다.
+        await 연산자를 사용할 수 있다.
+            
+    await 연산자
+        비동기 함수 안에서만 사용할 수 있다.
+        Promise의 상태가 fulfilled || rejected 일 때 까지 함수의 실행을 중단하고 기다릴 수 있다.
+
+    npm init -y
+    npm install -> npm i 
+
+    node_modules/: npm을 통해 설치된 패키지들에 대한 파일들이 모인 폴더
+    package-lock.json: 설치한 패키지들의 상세한 정보(버전 등)
+
+    포트번호로 서버가 안 열릴 때(이미 그 포트가 사용중임)
+        (필요해서 그 포트를 사용중이지 않을까?)
+        netstat -ano | find "원하는포트"
+        taskkill /f /pid PID
+
+    모듈 관리 방식
+        CommonJS: package.json -> "type": "commonjs" (default)
+        ES6: package.json -> "type": "module"
